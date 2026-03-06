@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Z4 Lounge - Menu Complet</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --gold: #C9A84C; --gold-light: #F5C842; --gold-dark: #8B6914;
+    --bg-dark: #000000; --text-white: #FFFFFF; --text-light: #E8D5A0;
+    --border-gold: rgba(201,168,76,0.4);
+  }
+  body { background: var(--bg-dark); color: var(--text-white); font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background: radial-gradient(ellipse at 15% 15%, rgba(201,168,76,0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 85%, rgba(201,168,76,0.04) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
+  }
+
+/* NAV */
+.nav {
+position: sticky; top: 0; z-index: 100;
+background: rgba(0,0,0,0.94); backdrop-filter: blur(8px);
+border-bottom: 1px solid var(–border-gold);
+display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 9px 16px;
+}
+.nav a {
+font-family: ‘Cinzel’, serif; font-size: clamp(9px,1.3vw,12px); font-weight: 700;
+color: var(–text-light); text-decoration: none; letter-spacing: 0.13em;
+text-transform: uppercase; padding: 5px 12px; border: 1px solid transparent;
+border-radius: 2px; transition: all 0.25s;
+}
+.nav a:hover { color: var(–gold-light); border-color: var(–border-gold); background: rgba(201,168,76,0.08); }
+.nav-sep { color: var(–gold); opacity: 0.35; align-self: center; font-size: 9px; }
+
+/* PAGES */
+.section-page { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: 50px 30px 70px; }
+
+/* DIVIDERS */
+.section-divider { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: 0 30px; }
+.divider-inner {
+border-top: 1px solid var(–border-gold); border-bottom: 1px solid var(–border-gold);
+padding: 22px 0; text-align: center;
+background: linear-gradient(to right, transparent, rgba(201,168,76,0.06), transparent);
+}
+.divider-label {
+font-family: ‘Cinzel’, serif; font-size: clamp(11px,1.8vw,15px); font-weight: 700;
+color: var(–gold); letter-spacing: 0.4em; text-transform: uppercase; opacity: 0.85;
+}
+
+/* HEADER */
+.header { text-align: center; margin-bottom: 44px; }
+.ornament-row { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 8px 0; }
+.ornament-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(–gold), transparent); max-width: 220px; }
+.ornament-diamond { width: 10px; height: 10px; background: var(–gold); transform: rotate(45deg); box-shadow: 0 0 8px var(–gold); flex-shrink: 0; }
+.logo-text {
+font-family: ‘Cinzel’, serif; font-size: clamp(32px,7vw,66px); font-weight: 900;
+background: linear-gradient(135deg, var(–gold-dark) 0%, var(–gold-light) 40%, var(–gold) 60%, var(–gold-dark) 100%);
+-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+letter-spacing: 0.1em; filter: drop-shadow(0 2px 10px rgba(201,168,76,0.45));
+}
+.logo-sub { font-family: ‘Cormorant Garamond’, serif; font-style: italic; font-size: clamp(13px,2vw,18px); color: var(–gold); letter-spacing: 0.35em; opacity: 0.85; margin-top: -2px; }
+.page-title {
+font-family: ‘Cinzel’, serif; font-size: clamp(22px,4.5vw,48px); font-weight: 700;
+background: linear-gradient(180deg, var(–gold-light) 0%, var(–gold) 50%, var(–gold-dark) 100%);
+-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+letter-spacing: 0.28em; margin: 12px 0 6px; filter: drop-shadow(0 3px 10px rgba(201,168,76,0.45));
+}
+
+/* FOOD CARDS */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 22px; }
+.section-card {
+background: linear-gradient(145deg, rgba(12,8,2,0.97) 0%, rgba(6,4,1,0.99) 100%);
+border: 1px solid var(–border-gold); border-radius: 2px; padding: 20px 22px 18px; position: relative; overflow: hidden;
+}
+.section-card::before { content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, transparent, var(–gold), transparent); }
+.section-card::after { content: ‘’; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(201,168,76,0.25), transparent); }
+.section-card .corner { position: absolute; width: 14px; height: 14px; border-color: var(–gold); border-style: solid; opacity: 0.55; }
+.section-card .corner.tl { top: 4px; left: 4px; border-width: 1px 0 0 1px; }
+.section-card .corner.tr { top: 4px; right: 4px; border-width: 1px 1px 0 0; }
+.section-card .corner.bl { bottom: 4px; left: 4px; border-width: 0 0 1px 1px; }
+.section-card .corner.br { bottom: 4px; right: 4px; border-width: 0 1px 1px 0; }
+
+.section-title {
+font-family: ‘Cinzel’, serif; font-size: clamp(13px,2vw,18px); font-weight: 700;
+color: var(–gold-light); text-align: center; letter-spacing: 0.2em; text-transform: uppercase;
+margin-bottom: 14px; padding-bottom: 8px; position: relative; text-shadow: 0 0 14px rgba(245,200,66,0.4);
+}
+.section-title::after { content: ‘’; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 1px; background: linear-gradient(to right, transparent, var(–gold), transparent); }
+
+.menu-item { display: flex; justify-content: space-between; align-items: baseline; padding: 5px 0; border-bottom: 1px dotted rgba(201,168,76,0.14); gap: 8px; }
+.menu-item:last-child { border-bottom: none; }
+.item-bullet { color: var(–gold); font-size: 9px; flex-shrink: 0; margin-top: 2px; }
+.item-name { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(12px,1.7vw,15px); font-weight: 700; color: #FFFFFF; flex: 1; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.4; text-shadow: 0 1px 4px rgba(0,0,0,0.9); }
+.item-note { font-style: italic; font-weight: 500; font-size: 0.84em; color: #E8D5A0; opacity: 0.88; }
+.item-price { font-family: ‘Cinzel’, serif; font-size: clamp(10px,1.5vw,13px); font-weight: 700; color: var(–gold-light); white-space: nowrap; flex-shrink: 0; text-shadow: 0 0 10px rgba(245,200,66,0.45); }
+
+.supplements-list { text-align: center; }
+.suppl-price { font-family: ‘Cinzel’, serif; font-size: clamp(12px,1.9vw,15px); color: var(–gold-light); margin-bottom: 10px; letter-spacing: 0.1em; }
+.suppl-item { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(11px,1.6vw,14px); font-weight: 700; color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.07em; padding: 3px 0; border-bottom: 1px dotted rgba(201,168,76,0.12); text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
+.suppl-item:last-child { border-bottom: none; }
+
+/* DRINKS TABLES */
+.category { margin-bottom: 28px; }
+.category-title {
+font-family: ‘Cinzel’, serif; font-size: clamp(14px,2.3vw,21px); font-weight: 700;
+color: var(–gold-light); text-align: center; letter-spacing: 0.2em; text-transform: uppercase;
+margin-bottom: 14px; padding-bottom: 10px; position: relative; text-shadow: 0 0 16px rgba(245,200,66,0.4);
+}
+.category-title::after { content: ‘’; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 55%; height: 1px; background: linear-gradient(to right, transparent, var(–gold), transparent); }
+
+.section-wrap { position: relative; padding: 2px; }
+.section-wrap .corner { position: absolute; width: 14px; height: 14px; border-color: var(–gold); border-style: solid; opacity: 0.5; z-index: 2; }
+.section-wrap .corner.tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+.section-wrap .corner.tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+.section-wrap .corner.bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+.section-wrap .corner.br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+
+.drinks-table { width: 100%; border-collapse: collapse; background: linear-gradient(145deg, rgba(8,8,8,0.98), rgba(3,3,3,0.99)); border: 1px solid var(–border-gold); overflow: hidden; position: relative; }
+.drinks-table::before { content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, transparent, var(–gold), transparent); z-index: 1; }
+.drinks-table thead tr { background: linear-gradient(to right, rgba(201,168,76,0.1), rgba(201,168,76,0.18), rgba(201,168,76,0.1)); border-bottom: 1px solid var(–border-gold); }
+.drinks-table thead th { font-family: ‘Cinzel’, serif; font-size: clamp(9px,1.3vw,12px); font-weight: 700; color: var(–gold-light); letter-spacing: 0.16em; text-transform: uppercase; padding: 10px 16px; text-align: left; }
+.drinks-table thead th:not(:first-child) { text-align: right; }
+.drinks-table tbody tr { border-bottom: 1px dotted rgba(201,168,76,0.13); transition: background 0.2s; }
+.drinks-table tbody tr:last-child { border-bottom: none; }
+.drinks-table tbody tr:hover { background: rgba(201,168,76,0.04); }
+.drinks-table td { padding: 9px 16px; vertical-align: middle; }
+.td-name { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(12px,1.7vw,15px); font-weight: 700; color: #FFFFFF; letter-spacing: 0.04em; text-transform: uppercase; text-shadow: 0 1px 4px rgba(0,0,0,0.9); }
+.td-note { font-style: italic; font-weight: 400; font-size: 0.87em; opacity: 0.75; text-transform: none; }
+.td-price { font-family: ‘Cinzel’, serif; font-size: clamp(10px,1.5vw,13px); font-weight: 700; color: var(–gold-light); text-align: right; white-space: nowrap; text-shadow: 0 0 10px rgba(245,200,66,0.35); }
+.td-price.no-price { color: rgba(201,168,76,0.3); font-weight: 400; font-family: ‘Cormorant Garamond’, serif; font-style: italic; }
+.bullet { color: var(–gold); font-size: 9px; padding-right: 6px; }
+
+.drinks-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 28px; }
+.drinks-grid-2 .category { margin-bottom: 0; }
+
+/* FOOTER */
+.footer { text-align: center; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(–border-gold); }
+.footer-logo { font-family: ‘Cinzel’, serif; font-size: clamp(18px,3.5vw,30px); font-weight: 900; background: linear-gradient(135deg, var(–gold-dark), var(–gold-light), var(–gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 6px rgba(201,168,76,0.4)); letter-spacing: 0.1em; }
+.footer-url { font-size: clamp(10px,1.5vw,12px); color: var(–gold); opacity: 0.65; letter-spacing: 0.18em; margin-top: 6px; }
+
+@media (max-width: 620px) { .grid-2, .drinks-grid-2 { grid-template-columns: 1fr; } .section-page { padding: 28px 14px 50px; } .nav { flex-wrap: wrap; } }
+@media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .nav { display: none; } }
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav class="nav">
+  <a href="#menu-repas">🍽️ Menu Repas</a>
+  <span class="nav-sep">◆</span>
+  <a href="#entrees">Entrées</a>
+  <span class="nav-sep">◆</span>
+  <a href="#plats">Plats</a>
+  <span class="nav-sep">◆</span>
+  <a href="#choukouyas">Choukouyas</a>
+  <span class="nav-sep">◆</span>
+  <a href="#carte-vins">🍾 Champagnes &amp; Vins</a>
+  <span class="nav-sep">◆</span>
+  <a href="#champagnes">Champagnes</a>
+  <span class="nav-sep">◆</span>
+  <a href="#vins">Vins</a>
+  <span class="nav-sep">◆</span>
+  <a href="#carte-boissons">🥃 Boissons</a>
+  <span class="nav-sep">◆</span>
+  <a href="#whiskies">Whiskies</a>
+  <span class="nav-sep">◆</span>
+  <a href="#cognacs">Cognacs</a>
+  <span class="nav-sep">◆</span>
+  <a href="#carte-boissons">Softs &amp; Cocktails</a>
+</nav>
+
+<!-- ══════════════════════
+     PARTIE 1 — MENU REPAS
+══════════════════════ -->
+
+<div id="menu-repas" class="section-page">
+  <div class="header">
+    <div class="ornament-row"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+    <div class="logo-text">Le Z4 Lounge</div>
+    <div class="logo-sub">Restaurant &amp; Bar</div>
+    <div class="page-title">MENU</div>
+    <div class="ornament-row"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+  </div>
+
+  <!-- ENTRÉES + PLATS -->
+
+  <div id="entrees" class="grid-2">
+    <div class="section-card">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <div class="section-title">Entrées</div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Salade au Poulet</span><span class="item-price">5.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Salade au Thon</span><span class="item-price">4.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Salade de Sardine</span><span class="item-price">3.500 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Salade de Tomate</span><span class="item-price">2.500 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Salade Nature</span><span class="item-price">2.000 Fr</span></div>
+    </div>
+    <div id="plats" class="section-card">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <div class="section-title">Nos Plats</div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Poulet Krekre</span><span class="item-price">6.000 / 10.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Poulet Sauté</span><span class="item-price">6.000 / 10.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Poulet Braisé <span class="item-note">(entier)</span></span><span class="item-price">10.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Poulet Z4 <span class="item-note">(au vin)</span></span><span class="item-price">15.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Pondeuse <span class="item-note">(SP/BR/GR)</span></span><span class="item-price">7.000 / 12.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Pintade</span><span class="item-price">8.000 / 14.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Lapin <span class="item-note">(entier)</span></span><span class="item-price">15.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Poisson <span class="item-note">(SP/BR/GR)</span></span><span class="item-price">7.000 à 20.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Steak</span><span class="item-price">10.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Q 2 Bœuf <span class="item-note">(SP/BR/GR)</span></span><span class="item-price">7.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Spaghettis <span class="item-note">(kiosque)</span></span><span class="item-price">2.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Omelette Z4</span><span class="item-price">2.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Kedjenou <span class="item-note">(à la demande)</span></span><span class="item-price">7.000 à 15.000 Fr</span></div>
+    </div>
+  </div>
+
+  <!-- SANDWICHS -->
+
+  <div class="grid-2">
+    <div class="section-card">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <div class="section-title">Sandwichs</div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Z4 <span class="item-note">(saucisse)</span></span><span class="item-price">3.500 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Merguez</span><span class="item-price">3.500 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Escale <span class="item-note">(émincé de viande)</span></span><span class="item-price">3.000 Fr</span></div>
+    </div>
+    <div></div>
+  </div>
+
+  <!-- CHOUKOUYAS + BROCHETTES -->
+
+  <div id="choukouyas" class="grid-2">
+    <div class="section-card">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <div class="section-title">Choukouyas</div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Mouton</span><span class="item-price">8.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Poulet</span><span class="item-price">6.000 / 10.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Filet</span><span class="item-price">7.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Gésier</span><span class="item-price">5.000 Fr</span></div>
+    </div>
+    <div class="section-card">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <div class="section-title">Brochettes</div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Bœuf</span><span class="item-price">6.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Poulet</span><span class="item-price">6.000 Fr</span></div>
+      <div class="menu-item"><span class="item-bullet">◆</span><span class="item-name">Gésier</span><span class="item-price">6.000 Fr</span></div>
+    </div>
+  </div>
+
+  <!-- SUPPLÉMENTS — après Brochettes -->
+
+  <div class="grid-2">
+    <div class="section-card">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <div class="section-title">Suppléments</div>
+      <div class="supplements-list">
+        <div class="suppl-price">Tous à 2.000 Fr</div>
+        <div class="suppl-item">Alloco</div>
+        <div class="suppl-item">Frites de Pomme de Terre</div>
+        <div class="suppl-item">Attiéké Normal</div>
+        <div class="suppl-item">Attiéké Sauté</div>
+        <div class="suppl-item">Riz</div>
+        <div class="suppl-item">Igname Grillé / Bouillie</div>
+        <div class="suppl-item">Purée</div>
+      </div>
+    </div>
+    <div></div>
+  </div>
+
+</div><!-- /partie 1 -->
+
+<!-- DIVIDER 1 → 2 -->
+
+<div class="section-divider">
+  <div class="divider-inner">
+    <div class="ornament-row" style="margin-bottom:12px;">
+      <div class="ornament-line"></div><div class="ornament-diamond"></div>
+      <div class="ornament-diamond" style="margin:0 6px;"></div><div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
+    <div class="divider-label">✦ &nbsp; Champagnes &amp; Vins &nbsp; ✦</div>
+    <div class="ornament-row" style="margin-top:12px;">
+      <div class="ornament-line"></div><div class="ornament-diamond"></div>
+      <div class="ornament-diamond" style="margin:0 6px;"></div><div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     PARTIE 2 — CHAMPAGNES & VINS
+══════════════════════════════ -->
+
+<div id="carte-vins" class="section-page">
+  <div class="header">
+    <div class="ornament-row"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+    <div class="logo-text">Le Z4 Lounge</div>
+    <div class="logo-sub">Restaurant &amp; Bar</div>
+    <div class="page-title">CHAMPAGNES &amp; VINS</div>
+    <div class="ornament-row"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+  </div>
+
+  <!-- CHAMPAGNES -->
+
+  <div id="champagnes" class="category">
+    <div class="category-title">🍾 Champagnes</div>
+    <div class="section-wrap">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <table class="drinks-table">
+        <thead><tr><th>Champagne</th><th>Prix (FCFA)</th></tr></thead>
+        <tbody>
+          <tr><td class="td-name"><span class="bullet">◆</span>Veuve Clicquot Brut</td><td class="td-price">60.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Moët Brut</td><td class="td-price">60.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Moët Nectar</td><td class="td-price">80.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>LP Brut</td><td class="td-price">60.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>LP Rosé</td><td class="td-price">110.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Billecart Brut</td><td class="td-price">60.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Billecart Rosé</td><td class="td-price">85.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Pommery Brut</td><td class="td-price">60.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Pommery Rosé</td><td class="td-price">70.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Ruinart Blanc</td><td class="td-price">100.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Ruinart Brut</td><td class="td-price">85.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Brunceaux Thomas</td><td class="td-price">50.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>1818</td><td class="td-price">50.000 Fr</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- VINS -->
+
+  <div id="vins" class="category">
+    <div class="category-title">🥂 Vins Blancs &amp; Rosé</div>
+    <div class="section-wrap">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <table class="drinks-table">
+        <thead><tr><th>Vin</th><th>Prix (FCFA)</th></tr></thead>
+        <tbody>
+          <tr><td class="td-name"><span class="bullet">◆</span>Haut Reys <span class="td-note">Blanc Sec</span></td><td class="td-price">25.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Pascal Jolivet <span class="td-note">Blanc Sec</span></td><td class="td-price">35.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Côtes de Bergerac <span class="td-note">Blanc Moelleux</span></td><td class="td-price">25.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Bleu de Mer <span class="td-note">Rosé</span></td><td class="td-price">25.000 Fr</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- VINS ROUGES -->
+
+  <div class="category">
+    <div class="category-title">🍷 Vins Rouges</div>
+    <div class="section-wrap">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <table class="drinks-table">
+        <thead><tr><th>Vin</th><th>Prix (FCFA)</th></tr></thead>
+        <tbody>
+          <tr><td class="td-name"><span class="bullet">◆</span>Château Talbot <span class="td-note">(Saint-Julien)</span></td><td class="td-price">75.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Château Clarke <span class="td-note">(Listrac-Médoc)</span></td><td class="td-price">60.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Fugue de Ménin <span class="td-note">(Saint-Émilion)</span></td><td class="td-price">60.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Pavillon de Glana <span class="td-note">(Saint-Julien)</span></td><td class="td-price">38.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>La Croix de Carbonnieux <span class="td-note">(Pessac-Léognan)</span></td><td class="td-price">35.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Château Fleur Gaussens</td><td class="td-price">35.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Château Teyssier <span class="td-note">(Saint-Émilion)</span></td><td class="td-price">30.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>La Branne</td><td class="td-price">35.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>La Grave Médoc</td><td class="td-price">25.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Pinot Noir Attitude</td><td class="td-price">25.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Mini Mouton Cadet</td><td class="td-price">12.000 Fr</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /partie 2 -->
+
+<!-- DIVIDER 2 → 3 -->
+
+<div class="section-divider">
+  <div class="divider-inner">
+    <div class="ornament-row" style="margin-bottom:12px;">
+      <div class="ornament-line"></div><div class="ornament-diamond"></div>
+      <div class="ornament-diamond" style="margin:0 6px;"></div><div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
+    <div class="divider-label">✦ &nbsp; Carte des Boissons &nbsp; ✦</div>
+    <div class="ornament-row" style="margin-top:12px;">
+      <div class="ornament-line"></div><div class="ornament-diamond"></div>
+      <div class="ornament-diamond" style="margin:0 6px;"></div><div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PARTIE 3 — CARTE DES BOISSONS
+══════════════════════════════════ -->
+
+<div id="carte-boissons" class="section-page">
+  <div class="header">
+    <div class="ornament-row"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+    <div class="logo-text">Le Z4 Lounge</div>
+    <div class="logo-sub">Restaurant &amp; Bar</div>
+    <div class="page-title">CARTE DES BOISSONS</div>
+    <div class="ornament-row"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+  </div>
+
+  <!-- WHISKIES -->
+
+  <div id="whiskies" class="category">
+    <div class="category-title">🥃 Whiskies &amp; Bourbons</div>
+    <div class="section-wrap">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <table class="drinks-table">
+        <thead><tr><th>Boisson</th><th>Prix Bouteille</th><th>Prix Verre / Dose</th></tr></thead>
+        <tbody>
+          <tr><td class="td-name"><span class="bullet">◆</span>Jack Daniel's</td><td class="td-price">50.000 Fr</td><td class="td-price">5.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Gentleman Jack</td><td class="td-price">60.000 Fr</td><td class="td-price">7.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Jack Single Barrel</td><td class="td-price">80.000 Fr</td><td class="td-price">10.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Chivas Regal 12 ans</td><td class="td-price">60.000 Fr</td><td class="td-price">5.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Chivas Regal Mini</td><td class="td-price">15.000 Fr</td><td class="td-price no-price">—</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Double Black</td><td class="td-price">80.000 Fr</td><td class="td-price">10.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Black Label</td><td class="td-price">60.000 Fr</td><td class="td-price">5.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Red Label</td><td class="td-price">40.000 Fr</td><td class="td-price">4.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Jameson</td><td class="td-price">40.000 Fr</td><td class="td-price">4.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Ballantine's</td><td class="td-price">35.000 Fr</td><td class="td-price">4.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Ballantine's Mini</td><td class="td-price">12.000 Fr</td><td class="td-price no-price">—</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>J.B</td><td class="td-price">30.000 Fr</td><td class="td-price">4.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>White Horse</td><td class="td-price">30.000 Fr</td><td class="td-price">4.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Glen 12 ans</td><td class="td-price">60.000 Fr</td><td class="td-price">7.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Glen 16 ans</td><td class="td-price">100.000 Fr</td><td class="td-price">10.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Glen 18 ans</td><td class="td-price">200.000 Fr</td><td class="td-price">15.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Ardbeg Whisky</td><td class="td-price">90.000 Fr</td><td class="td-price no-price">—</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Royal Salute 21 ans</td><td class="td-price">280.000 Fr</td><td class="td-price no-price">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- COGNACS + VODKAS -->
+
+  <div class="drinks-grid-2">
+    <div id="cognacs" class="category">
+      <div class="category-title">🍷 Cognacs</div>
+      <div class="section-wrap">
+        <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+        <table class="drinks-table">
+          <thead><tr><th>Boisson</th><th>Bouteille</th><th>Verre</th></tr></thead>
+          <tbody>
+            <tr><td class="td-name"><span class="bullet">◆</span>Hennessy V.S</td><td class="td-price">50.000 Fr</td><td class="td-price">7.000 Fr</td></tr>
+            <tr><td class="td-name"><span class="bullet">◆</span>Hennessy V.S.O.P</td><td class="td-price">100.000 Fr</td><td class="td-price">10.000 Fr</td></tr>
+            <tr><td class="td-name"><span class="bullet">◆</span>Hennessy X.O</td><td class="td-price">240.000 Fr</td><td class="td-price">20.000 Fr</td></tr>
+            <tr><td class="td-name"><span class="bullet">◆</span>Deau X.O</td><td class="td-price">180.000 Fr</td><td class="td-price no-price">—</td></tr>
+            <tr><td class="td-name"><span class="bullet">◆</span>A. de Vacqueur V.S.O.P</td><td class="td-price">80.000 Fr</td><td class="td-price">10.000 Fr</td></tr>
+            <tr><td class="td-name"><span class="bullet">◆</span>Bache Gabrielsen</td><td class="td-price">80.000 Fr</td><td class="td-price no-price">—</td></tr>
+            <tr><td class="td-name"><span class="bullet">◆</span>Pantera XO</td><td class="td-price">90.000 Fr</td><td class="td-price">12.000 Fr</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="category">
+      <div class="category-title">🍸 Vodkas, Gins &amp; Tequilas</div>
+      <div class="section-wrap">
+        <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+        <table class="drinks-table">
+          <thead><tr><th>Boisson</th><th>Bouteille</th><th>Verre</th></tr></thead>
+          <tbody>
+            <tr><td class="td-name"><span class="bullet">◆</span>Absolut Vodka</td><td class="td-price">50.000 Fr</td><td class="td-price">4.000 Fr</td></tr>
+            <tr><td class="td-name"><span class="bullet">◆</span>Vodka Mini</td><td class="td-price">10.000 Fr</td><td class="td-price no-price">—</td></tr>
+            <tr><td class="td-name"><span class="bullet">◆</span>Belvedere Vodka</td><td class="td-price">120.000 Fr</td><td class="td-price no-price">—</td></tr>
+            <tr><td class="td-name"><span class="bullet">◆</span>Bombay Sapphire</td><td class="td-price">45.000 Fr</td><td class="td-price">5.000 Fr</td></tr>
+            <tr><td class="td-name"><span class="bullet">◆</span>Clase Azul Tequila</td><td class="td-price">250.000 Fr</td><td class="td-price no-price">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- RHUMS APÉRITIFS LIQUEURS -->
+
+  <div class="category">
+    <div class="category-title">🍹 Rhums, Apéritifs &amp; Liqueurs</div>
+    <div class="section-wrap">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <table class="drinks-table">
+        <thead><tr><th>Boisson</th><th>Prix Bouteille</th><th>Prix Verre / Dose</th></tr></thead>
+        <tbody>
+          <tr><td class="td-name"><span class="bullet">◆</span>Bacardi Blanc</td><td class="td-price">35.000 Fr</td><td class="td-price">4.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Bacardi Gold</td><td class="td-price">35.000 Fr</td><td class="td-price">4.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Bailey's</td><td class="td-price">35.000 Fr</td><td class="td-price">5.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Martini Rouge</td><td class="td-price">30.000 Fr</td><td class="td-price">4.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Martini Blanc</td><td class="td-price">30.000 Fr</td><td class="td-price">4.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Ricard</td><td class="td-price">30.000 Fr</td><td class="td-price">4.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Sandeman</td><td class="td-price">30.000 Fr</td><td class="td-price">4.000 Fr</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SOFTS, BIÈRES & COCKTAILS -->
+
+  <div class="category">
+    <div class="category-title">🥤 Softs, Bières &amp; Cocktails</div>
+    <div class="section-wrap">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <table class="drinks-table">
+        <thead><tr><th>Boisson</th><th>Prix</th></tr></thead>
+        <tbody>
+          <tr><td class="td-name"><span class="bullet">◆</span>Sanbiter</td><td class="td-price">2.500 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Perrier</td><td class="td-price">3.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Eau Minérale <span class="td-note">33cl / 1L</span></td><td class="td-price">500 / 1.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Rails de Shots de 6</td><td class="td-price">15.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Sodas &amp; Jus Naturel</td><td class="td-price">2.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Bières</td><td class="td-price">3.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Cocktail Non Alcoolisé</td><td class="td-price">5.000 Fr</td></tr>
+          <tr><td class="td-name"><span class="bullet">◆</span>Cocktail Alcoolisé</td><td class="td-price">7.000 Fr</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+
+  <div class="footer">
+    <div class="ornament-row"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+    <div style="margin-top:14px;">
+      <div class="footer-logo">Le Z4 Lounge</div>
+      <div class="footer-url">www.z4lounge.com</div>
+    </div>
+  </div>
+
+</div><!-- /partie 3 -->
+</body>
+</html>
